@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EliteEbook</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+</head>
+<body>
+    <!-- Preloader with shaking book -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="book-container">
+                <div class="book">
+                    <div class="book-cover"></div>
+                    <div class="book-pages"></div>
+                </div>
+            </div>
+            <p class="preloader-text">Loading...</p>
+        </div>
+    </div>
+
+    <div class="page">
+        <header class="hero glass">
+            <nav class="nav">
+                <div class="brand">
+                    <img src="assets/images/logo.png" alt="EliteEbook Logo">
+                    <span style="font-family: Lemon; font-weight: 300;">Elite Ebook</span>
+                </div>
+                <div class="nav-actions">
+                    <a class="pill" href="#price">Pricing</a>
+                    <a class="pill ghost" href="#reviews">Reviews</a>
+                </div>
+            </nav>
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow">Premium Ebook Design Studio</p>
+                    <h1>Welcome to EliteEbook</h1>
+                    <p class="lede">
+                        Premium ebook design solutions crafted to elevate your digital books
+                        and captivate your audience.
+                    </p>
+                    <div class="hero-ctas">
+                        <a class="btn" href="#services">View Services</a>
+                        <a class="btn ghost" href="#designs">See Recent Work</a>
+                    </div>
+                </div>
+                <div class="hero-badge glass">
+                    <p class="badge-title">Trusted by authors worldwide</p>
+                    <p class="badge-meta">Covers • Formatting • Full Packages</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="custom-marquee">
+            <div class="marquee-inner">
+                <span>PROFESSIONAL EBOOK COVER DESIGNS</span>
+                <span>SINGLE CHARACTER COVER ART</span>
+                <span>MULTIPLE CHARACTER BOOK COVERS</span>
+                <span>AMAZON KINDLE & EPUB FORMATTING</span>
+                <span>PREMIUM EBOOK LAYOUT DESIGN</span>
+                <span>COMPLETE EBOOK DESIGN PACKAGES</span>
+                <span>PROFESSIONAL EBOOK COVER DESIGNS</span>
+                <span>SINGLE CHARACTER COVER ART</span>
+                <span>MULTIPLE CHARACTER BOOK COVERS</span>
+                <span>AMAZON KINDLE & EPUB FORMATTING</span>
+                <span>PREMIUM EBOOK LAYOUT DESIGN</span>
+                <span>COMPLETE EBOOK DESIGN PACKAGES</span>
+            </div>
+        </div>
+
+        <section class="section glass" id="about">
+            <div class="section-header">
+                <p class="eyebrow">About</p>
+                <h2>About Us</h2>
+            </div>
+            <div class="two-col">
+                <p>
+                    EliteEbook is a professional ebook design service dedicated to authors,
+                    writers, and digital creators. We specialize in creating visually striking
+                    cover designs, clean formatting, and complete ebook solutions that meet
+                    industry standards.
+                </p>
+                <p>
+                    Our goal is to ensure your ebook looks professional, polished, and ready
+                    for platforms like Amazon Kindle, EPUB stores, and PDFs.
+                </p>
+            </div>
+        </section>
+
+        <div class="custom-marquee reverse">
+            <div class="marquee-inner">
+                <span>CREATIVE EBOOK BRANDING</span>
+                <span>HIGH-QUALITY COVER ART</span>
+                <span>READER-FOCUSED DESIGN</span>
+                <span>PLATFORM-READY FORMATTING</span>
+                <span>MODERN & CLEAN LAYOUTS</span>
+                <span>PROFESSIONAL DIGITAL PRESENTATION</span>
+                <span>CREATIVE EBOOK BRANDING</span>
+                <span>HIGH-QUALITY COVER ART</span>
+                <span>READER-FOCUSED DESIGN</span>
+                <span>PLATFORM-READY FORMATTING</span>
+                <span>MODERN & CLEAN LAYOUTS</span>
+                <span>PROFESSIONAL DIGITAL PRESENTATION</span>
+            </div>
+        </div>
+
+        <section class="section glass" id="services">
+            <div class="section-header">
+                <p class="eyebrow">Services</p>
+                <h2>Services</h2>
+            </div>
+            <div class="service-grid">
+                <div class="card">
+                    <p class="pill tiny">Covers</p>
+                    <h3>Professional Cover Page</h3>
+                    <p>Eye-catching, genre-appropriate covers that stand out on every store.</p>
+                </div>
+                <div class="card">
+                    <p class="pill tiny">Fantasy • Fiction • Romance</p>
+                    <h3>Single Character Covers</h3>
+                    <p>Hero-focused artwork with dramatic lighting and detailed styling.</p>
+                </div>
+                <div class="card">
+                    <p class="pill tiny">Story Concepts</p>
+                    <h3>Multiple Character Covers</h3>
+                    <p>Scene-based compositions that bring your plot and cast to life.</p>
+                </div>
+                <div class="card">
+                    <p class="pill tiny">Formatting</p>
+                    <h3>Ebook Formatting</h3>
+                    <p>Kindle, EPUB, and PDF layouts tuned for readability and standards.</p>
+                </div>
+                <div class="card">
+                    <p class="pill tiny">All-in-one</p>
+                    <h3>Complete Packages</h3>
+                    <p>Cover + formatting + delivery files ready to publish without friction.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="custom-marquee">
+            <div class="marquee-inner">
+                <span>FANTASY & FICTION COVER DESIGNS</span>
+                <span>AUTHOR BRANDING SOLUTIONS</span>
+                <span>ATTENTION-GRABBING BOOK COVERS</span>
+                <span>INDUSTRY STANDARD FORMATTING</span>
+                <span>ALL-IN-ONE EBOOK SERVICES</span>
+                <span>PROFESSIONAL DIGITAL BOOK DESIGN</span>
+                <span>FANTASY & FICTION COVER DESIGNS</span>
+                <span>AUTHOR BRANDING SOLUTIONS</span>
+                <span>ATTENTION-GRABBING BOOK COVERS</span>
+                <span>INDUSTRY STANDARD FORMATTING</span>
+                <span>ALL-IN-ONE EBOOK SERVICES</span>
+                <span>PROFESSIONAL DIGITAL BOOK DESIGN</span>
+            </div>
+        </div>
+
+        <section class="section glass" id="designs">
+            <div class="section-header">
+                <p class="eyebrow">Work</p>
+                <h2>Our Recent Designs</h2>
+            </div>
+            <div class="carousel">
+                <button class="carousel-btn prev" data-target="designsTrack">‹</button>
+                <div class="carousel-track" id="designsTrack">
+                    <div class="design-card">
+                        <img src="assets/images/1.webp" alt="Design 1">
+                        <p>Dark fantasy concept</p>
+                    </div>
+                    <div class="design-card">
+                        <img src="assets/images/2.webp" alt="Design 2">
+                        <p>Romantic drama cover</p>
+                    </div>
+                    <div class="design-card">
+                        <img src="assets/images/3.webp" alt="Design 3">
+                        <p>Thriller / mystery look</p>
+                    </div>
+                    <div class="design-card">
+                        <img src="assets/images/4.webp" alt="Design 4">
+                        <p>Epic multi-character art</p>
+                    </div>
+                    <div class="design-card">
+                        <img src="assets/images/5.webp" alt="Design 5">
+                        <p>Elegant non-fiction</p>
+                    </div>
+                    <div class="design-card">
+                        <img src="assets/images/6.webp" alt="Design 6">
+                        <p>Sci-fi neon glow</p>
+                    </div>
+                </div>
+                <button class="carousel-btn next" data-target="designsTrack">›</button>
+            </div>
+        </section>
+
+        <!-- Image lightbox for enlarging project images -->
+        <div class="image-lightbox" id="imageLightbox" aria-hidden="true">
+            <div class="image-lightbox-backdrop"></div>
+            <div class="image-lightbox-content">
+                <button class="image-lightbox-close" aria-label="Close image">✕</button>
+                <img id="lightboxImage" src="" alt="">
+                <p id="lightboxCaption"></p>
+            </div>
+        </div>
+
+        <div class="custom-marquee reverse">
+            <div class="marquee-inner">
+                <span>RECENT PREMIUM EBOOK PROJECTS</span>
+                <span>CREATIVE COVER SHOWCASE</span>
+                <span>MODERN DIGITAL DESIGNS</span>
+                <span>VISUAL STORYTELLING</span>
+                <span>PROFESSIONAL DESIGN PORTFOLIO</span>
+                <span>ELITEEBOOK CREATIVE WORK</span>
+                <span>RECENT PREMIUM EBOOK PROJECTS</span>
+                <span>CREATIVE COVER SHOWCASE</span>
+                <span>MODERN DIGITAL DESIGNS</span>
+                <span>VISUAL STORYTELLING</span>
+                <span>PROFESSIONAL DESIGN PORTFOLIO</span>
+                <span>ELITEEBOOK CREATIVE WORK</span>
+            </div>
+        </div>
+
+        <section class="section glass" id="price">
+            <div class="section-header">
+                <p class="eyebrow">Packages</p>
+                <h2>Price List</h2>
+            </div>
+            <div class="price-grid">
+                <div class="card">
+                    <p class="pill tiny">Cover</p>
+                    <h3>Cover Page</h3>
+                    <p>$90</p>
+                </div>
+                <div class="card">
+                    <p class="pill tiny">Character</p>
+                    <h3>Single Character Cover</h3>
+                    <p>$130</p>
+                </div>
+                <div class="card">
+                    <p class="pill tiny">Cast</p>
+                    <h3>Multiple Character Cover</h3>
+                    <p>$200</p>
+                </div>
+                <div class="card">
+                    <p class="pill tiny">Formatting</p>
+                    <h3>Formatting + Cover</h3>
+                    <p>$450</p>
+                </div>
+                <div class="card">
+                    <p class="pill tiny">Full</p>
+                    <h3>Complete Ebook Package</h3>
+                    <p>$999</p>
+                </div>
+            </div>
+            <div class="discount-notice">
+                <p>💫 We will give discount as much as we can!</p>
+            </div>
+        </section>
+
+        <section class="section glass" id="reviews">
+            <div class="section-header">
+                <p class="eyebrow">Testimonials</p>
+                <h2>Our Clients Reviews</h2>
+            </div>
+            <div class="review-wrap">
+                <button class="review-nav prev" aria-label="Previous review">‹</button>
+                <div class="review-card glass" id="reviewCard">
+                    <p class="stars" id="reviewStars">⭐⭐⭐⭐⭐</p>
+                    <p class="review-text" id="reviewText">“Outstanding design quality and fast delivery.”</p>
+                    <p class="reviewer" id="reviewer">— Ava, Fantasy Author</p>
+                </div>
+                <button class="review-nav next" aria-label="Next review">›</button>
+            </div>
+            <div class="review-dots" id="reviewDots"></div>
+        </section>
+
+        <footer class="footer glass">
+            <div class="footer-content">
+                <a href="https://www.paypal.com/ncp/payment/BKFV9TTT3BRPJ" class="paypal-btn" id="paypalBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.417 1.73 1.24 4.317-.178 6.299-1.584 2.18-3.584 2.746-5.724 2.746h-2.92l-.998 4.94zm0 0" fill="#0070BA"/>
+                        <path d="M7.076 21.337l-1.15-5.69h-.424a.641.641 0 0 0-.633.74l1.71 10.696a.641.641 0 0 0 .633.54h2.39zm0 0" fill="#001C64"/>
+                        <path d="M19.926 8.504c-.152-.216-.338-.407-.554-.566a6.227 6.227 0 0 0-1.71-.91c-.301-.107-.625-.19-.958-.246a.238.238 0 0 0-.056-.003h-3.35a.48.48 0 0 0-.475.407l-1.28 6.34h2.748a.48.48 0 0 0 .47-.393l.245-1.216a.48.48 0 0 1 .47-.393h.294c2.084 0 3.729-.88 4.215-3.43.217-1.14.062-2.08-.463-2.78zm-1.023 1.582c-.32 1.61-1.424 1.61-2.47 1.61h-.19l.17-.844c.02-.098.11-.167.21-.167h.15c.66 0 1.35 0 1.8-.3.23-.15.33-.35.33-.6 0-.25-.08-.48-.23-.66-.19-.22-.5-.34-.88-.34h-.57a.32.32 0 0 0-.32.27l-.17.84h-.02l-.24 1.19a.32.32 0 0 1 .32-.27h1.38c.66 0 1.35 0 1.8-.3.23-.15.33-.35.33-.6 0-.25-.08-.48-.23-.66z" fill="#0070BA"/>
+                    </svg>
+                    <span>Pay with PayPal</span>
+                </a>
+                <p>© 2025 EliteEbook. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
