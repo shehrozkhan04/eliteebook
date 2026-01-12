@@ -423,6 +423,22 @@ a {
     background: rgba(0, 0, 0, 0.45);
 }
 
+.design-subsection {
+    margin-top: 32px;
+}
+
+.design-subsection:first-of-type {
+    margin-top: 20px;
+}
+
+.subsection-title {
+    font-family: 'Kugile', 'Playfair Display', 'Cinzel', serif;
+    color: var(--accent);
+    font-size: clamp(20px, 2.5vw, 28px);
+    margin: 0 0 16px 0;
+    font-weight: 600;
+}
+
 .price-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -604,6 +620,88 @@ a {
         opacity: 1;
         transform: translateY(0) scale(1);
     }
+}
+
+/* Ebook Lightbox Styles */
+.ebook-lightbox {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.ebook-lightbox.is-open {
+    display: flex;
+}
+
+.ebook-lightbox-content {
+    position: relative;
+    max-width: min(95vw, 1200px);
+    max-height: 95vh;
+    z-index: 1;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7);
+    background: #020309;
+    animation: lightbox-in 0.25s ease-out;
+    padding: 20px;
+}
+
+.ebook-pages-container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 16px;
+    align-items: center;
+}
+
+.ebook-pages-viewer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.ebook-pages-viewer img {
+    max-width: 100%;
+    max-height: 80vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.ebook-page-counter {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.ebook-nav-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: rgba(0, 0, 0, 0.75);
+    color: var(--text);
+    cursor: pointer;
+    font-size: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.ebook-nav-btn:hover:not(:disabled) {
+    background: rgba(111, 255, 233, 0.25);
+    transform: translateY(-1px);
+}
+
+.ebook-nav-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
 }
 
 .footer {

@@ -172,17 +172,31 @@ function initPageAnimations() {
     });
     
     // Design cards animation
-    gsap.from('.design-card', {
+    gsap.utils.toArray('.carousel-track').forEach((track) => {
+        gsap.from(track.querySelectorAll('.design-card'), {
+            opacity: 0,
+            x: 50,
+            duration: 0.6,
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: track,
+                start: "top 80%",
+                toggleActions: "play none none none"
+            },
+            ease: "power2.out"
+        });
+    });
+
+    // Subsection titles animation
+    gsap.from('.subsection-title', {
         opacity: 0,
-        x: 50,
+        y: 20,
         duration: 0.6,
-        stagger: 0.1,
         scrollTrigger: {
-            trigger: '.carousel-track',
-            start: "top 80%",
+            trigger: '.subsection-title',
+            start: "top 85%",
             toggleActions: "play none none none"
-        },
-        ease: "power2.out"
+        }
     });
     
     // Carousel buttons animation
@@ -404,7 +418,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    initCarousel('designsTrack');
+    // Initialize all carousels
+    initCarousel('frontCoverTrack');
+    initCarousel('fullCoverTrack');
+    initCarousel('ebookTrack');
 
     /* --- Image lightbox for design images --- */
     const lightbox = document.getElementById('imageLightbox');
@@ -464,8 +481,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Attach click handlers to all design images
-    const designImages = document.querySelectorAll('.design-card img');
+    // Attach click handlers to all design images (excluding ebook cards)
+    const designImages = document.querySelectorAll('.design-card:not(.ebook-card) img');
     designImages.forEach((img) => {
         img.style.cursor = 'zoom-in';
         img.addEventListener('click', () => {
@@ -473,6 +490,160 @@ document.addEventListener('DOMContentLoaded', () => {
             const captionEl = card ? card.querySelector('p') : null;
             openLightbox(img.src, img.alt, captionEl ? captionEl.textContent : '');
         });
+    });
+
+    /* --- Ebook Pages Preview --- */
+    const ebookLightbox = document.getElementById('ebookLightbox');
+    const ebookPageImage = document.getElementById('ebookPageImage');
+    const currentPageSpan = document.getElementById('currentPage');
+    const totalPagesSpan = document.getElementById('totalPages');
+    const prevPageBtn = document.getElementById('prevPageBtn');
+    const nextPageBtn = document.getElementById('nextPageBtn');
+    const ebookCloseBtn = ebookLightbox?.querySelector('.image-lightbox-close');
+    const ebookBackdrop = ebookLightbox?.querySelector('.image-lightbox-backdrop');
+
+    let currentEbookPages = [];
+    let currentPageIndex = 0;
+
+    // Ebook pages data
+    const ebookData = {
+        'Book 1': [
+            'assets/images/Ebook/Book 1/1.jpg',
+            'assets/images/Ebook/Book 1/2.jpg',
+            'assets/images/Ebook/Book 1/3.jpg',
+            'assets/images/Ebook/Book 1/4.jpg',
+            'assets/images/Ebook/Book 1/5.jpg',
+            'assets/images/Ebook/Book 1/6.jpg',
+            'assets/images/Ebook/Book 1/7.jpg',
+            'assets/images/Ebook/Book 1/8.jpg',
+            'assets/images/Ebook/Book 1/9.jpg',
+            'assets/images/Ebook/Book 1/10.jpg',
+            'assets/images/Ebook/Book 1/11.jpg',
+            'assets/images/Ebook/Book 1/12.jpg'
+        ],
+        'Book 2': [
+            'assets/images/Ebook/Book 2/1.jpg',
+            'assets/images/Ebook/Book 2/2.jpg',
+            'assets/images/Ebook/Book 2/3.jpg',
+            'assets/images/Ebook/Book 2/4.jpg',
+            'assets/images/Ebook/Book 2/5.jpg',
+            'assets/images/Ebook/Book 2/6.jpg',
+            'assets/images/Ebook/Book 2/7.jpg',
+            'assets/images/Ebook/Book 2/8.jpg',
+            'assets/images/Ebook/Book 2/9.jpg',
+            'assets/images/Ebook/Book 2/10.jpg',
+            'assets/images/Ebook/Book 2/11.jpg'
+        ]
+    };
+
+    const openEbookPreview = (bookName) => {
+        if (!ebookLightbox || !ebookPageImage) return;
+        
+        currentEbookPages = ebookData[bookName] || [];
+        if (currentEbookPages.length === 0) return;
+        
+        currentPageIndex = 0;
+        totalPagesSpan.textContent = currentEbookPages.length;
+        updateEbookPage();
+        
+        ebookLightbox.classList.add('is-open');
+        ebookLightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        
+        // GSAP animation
+        gsap.fromTo(ebookLightbox, 
+            { opacity: 0 },
+            { opacity: 1, duration: 0.3 }
+        );
+        gsap.fromTo('.ebook-lightbox-content',
+            { scale: 0.8, opacity: 0 },
+            { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.7)" }
+        );
+    };
+
+    const updateEbookPage = () => {
+        if (currentEbookPages.length === 0) return;
+        
+        ebookPageImage.src = currentEbookPages[currentPageIndex];
+        currentPageSpan.textContent = currentPageIndex + 1;
+        
+        // Update button states
+        prevPageBtn.disabled = currentPageIndex === 0;
+        nextPageBtn.disabled = currentPageIndex === currentEbookPages.length - 1;
+    };
+
+    const closeEbookPreview = () => {
+        if (!ebookLightbox) return;
+        
+        gsap.to('.ebook-lightbox-content', {
+            scale: 0.8,
+            opacity: 0,
+            duration: 0.3,
+            ease: "power2.in",
+            onComplete: () => {
+                ebookLightbox.classList.remove('is-open');
+                ebookLightbox.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+                currentEbookPages = [];
+            }
+        });
+    };
+
+    // Ebook navigation
+    if (prevPageBtn) {
+        prevPageBtn.addEventListener('click', () => {
+            if (currentPageIndex > 0) {
+                currentPageIndex--;
+                updateEbookPage();
+            }
+        });
+    }
+
+    if (nextPageBtn) {
+        nextPageBtn.addEventListener('click', () => {
+            if (currentPageIndex < currentEbookPages.length - 1) {
+                currentPageIndex++;
+                updateEbookPage();
+            }
+        });
+    }
+
+    if (ebookCloseBtn) {
+        ebookCloseBtn.addEventListener('click', closeEbookPreview);
+    }
+
+    if (ebookBackdrop) {
+        ebookBackdrop.addEventListener('click', closeEbookPreview);
+    }
+
+    // Keyboard navigation for ebook
+    document.addEventListener('keydown', (e) => {
+        if (!ebookLightbox || !ebookLightbox.classList.contains('is-open')) return;
+        
+        if (e.key === 'Escape') {
+            closeEbookPreview();
+        } else if (e.key === 'ArrowLeft' && currentPageIndex > 0) {
+            currentPageIndex--;
+            updateEbookPage();
+        } else if (e.key === 'ArrowRight' && currentPageIndex < currentEbookPages.length - 1) {
+            currentPageIndex++;
+            updateEbookPage();
+        }
+    });
+
+    // Attach click handlers to ebook cards
+    const ebookCards = document.querySelectorAll('.ebook-card');
+    ebookCards.forEach((card) => {
+        const img = card.querySelector('img');
+        if (img) {
+            img.style.cursor = 'pointer';
+            card.addEventListener('click', () => {
+                const bookName = card.getAttribute('data-book');
+                if (bookName) {
+                    openEbookPreview(bookName);
+                }
+            });
+        }
     });
     
     // Hover animations for buttons

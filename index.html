@@ -165,40 +165,90 @@
                 <p class="eyebrow">Work</p>
                 <h2>Our Recent Designs</h2>
             </div>
-            <div class="carousel">
-                <button class="carousel-btn prev" data-target="designsTrack">‹</button>
-                <div class="carousel-track" id="designsTrack">
-                    <div class="design-card">
-                        <img src="assets/images/1.webp" alt="Design 1">
-                        <p>Dark fantasy concept</p>
+
+            <!-- Front Cover Page Section -->
+            <div class="design-subsection">
+                <h3 class="subsection-title">Front Cover Page</h3>
+                <div class="carousel">
+                    <button class="carousel-btn prev" data-target="frontCoverTrack">‹</button>
+                    <div class="carousel-track" id="frontCoverTrack">
+                        <div class="design-card">
+                            <img src="assets/images/FrontCover/1.webp" alt="Front Cover 1">
+                            <p>Front Cover Design 1</p>
+                        </div>
+                        <div class="design-card">
+                            <img src="assets/images/FrontCover/2.webp" alt="Front Cover 2">
+                            <p>Front Cover Design 2</p>
+                        </div>
+                        <div class="design-card">
+                            <img src="assets/images/FrontCover/3.webp" alt="Front Cover 3">
+                            <p>Front Cover Design 3</p>
+                        </div>
+                        <div class="design-card">
+                            <img src="assets/images/FrontCover/4.webp" alt="Front Cover 4">
+                            <p>Front Cover Design 4</p>
+                        </div>
+                        <div class="design-card">
+                            <img src="assets/images/FrontCover/5.webp" alt="Front Cover 5">
+                            <p>Front Cover Design 5</p>
+                        </div>
+                        <div class="design-card">
+                            <img src="assets/images/FrontCover/6.webp" alt="Front Cover 6">
+                            <p>Front Cover Design 6</p>
+                        </div>
                     </div>
-                    
-                    <div class="design-card">
-                        <img src="assets/images/3.webp" alt="Design 3">
-                        <p>Thriller / mystery look</p>
-                    </div>
-                    <div class="design-card">
-                        <img src="assets/images/4.webp" alt="Design 4">
-                        <p>Epic multi-character art</p>
-                    </div>
-                    <div class="design-card">
-                        <img src="assets/images/5.webp" alt="Design 5">
-                        <p>Elegant non-fiction</p>
-                    </div>
-                    <div class="design-card">
-                        <img src="assets/images/6.webp" alt="Design 6">
-                        <p>Sci-fi neon glow</p>
-                    </div>
-                    <div class="design-card">
-                        <img src="assets/images/7.webp" alt="Design 5">
-                        <p>Complete Cover</p>
-                    </div>
-                    <div class="design-card">
-                        <img src="assets/images/8.webp" alt="Design 6">
-                        <p>Concept Art</p>
-                    </div>
+                    <button class="carousel-btn next" data-target="frontCoverTrack">›</button>
                 </div>
-                <button class="carousel-btn next" data-target="designsTrack">›</button>
+            </div>
+
+            <!-- Full Cover Page Section -->
+            <div class="design-subsection">
+                <h3 class="subsection-title">Full Cover Page</h3>
+                <div class="carousel">
+                    <button class="carousel-btn prev" data-target="fullCoverTrack">‹</button>
+                    <div class="carousel-track" id="fullCoverTrack">
+                        <div class="design-card">
+                            <img src="assets/images/FullCover/1.webp" alt="Full Cover 1">
+                            <p>Full Cover Design 1</p>
+                        </div>
+                        <div class="design-card">
+                            <img src="assets/images/FullCover/2.webp" alt="Full Cover 2">
+                            <p>Full Cover Design 2</p>
+                        </div>
+                        <div class="design-card">
+                            <img src="assets/images/FullCover/3.webp" alt="Full Cover 3">
+                            <p>Full Cover Design 3</p>
+                        </div>
+                        <div class="design-card">
+                            <img src="assets/images/FullCover/4.webp" alt="Full Cover 4">
+                            <p>Full Cover Design 4</p>
+                        </div>
+                        <div class="design-card">
+                            <img src="assets/images/FullCover/5.webp" alt="Full Cover 5">
+                            <p>Full Cover Design 5</p>
+                        </div>
+                    </div>
+                    <button class="carousel-btn next" data-target="fullCoverTrack">›</button>
+                </div>
+            </div>
+
+            <!-- Complete Ebook Section -->
+            <div class="design-subsection">
+                <h3 class="subsection-title">Complete Ebook</h3>
+                <div class="carousel">
+                    <button class="carousel-btn prev" data-target="ebookTrack">‹</button>
+                    <div class="carousel-track" id="ebookTrack">
+                        <div class="design-card ebook-card" data-book="Book 1">
+                            <img src="assets/images/Ebook/Book 1/1.jpg" alt="Ebook Book 1">
+                            <p>Complete Ebook - Book 1</p>
+                        </div>
+                        <div class="design-card ebook-card" data-book="Book 2">
+                            <img src="assets/images/Ebook/Book 2/1.jpg" alt="Ebook Book 2">
+                            <p>Complete Ebook - Book 2</p>
+                        </div>
+                    </div>
+                    <button class="carousel-btn next" data-target="ebookTrack">›</button>
+                </div>
             </div>
         </section>
 
@@ -209,6 +259,24 @@
                 <button class="image-lightbox-close" aria-label="Close image">✕</button>
                 <img id="lightboxImage" src="" alt="">
                 <p id="lightboxCaption"></p>
+            </div>
+        </div>
+
+        <!-- Ebook Pages Preview Lightbox -->
+        <div class="ebook-lightbox" id="ebookLightbox" aria-hidden="true">
+            <div class="image-lightbox-backdrop"></div>
+            <div class="ebook-lightbox-content">
+                <button class="image-lightbox-close" aria-label="Close ebook preview">✕</button>
+                <div class="ebook-pages-container">
+                    <button class="ebook-nav-btn prev-page" id="prevPageBtn">‹</button>
+                    <div class="ebook-pages-viewer">
+                        <img id="ebookPageImage" src="" alt="Ebook Page">
+                        <p class="ebook-page-counter">
+                            <span id="currentPage">1</span> / <span id="totalPages">1</span>
+                        </p>
+                    </div>
+                    <button class="ebook-nav-btn next-page" id="nextPageBtn">›</button>
+                </div>
             </div>
         </div>
 
